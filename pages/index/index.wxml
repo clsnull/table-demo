@@ -1,0 +1,23 @@
+<view class="section section_gap">
+  <view class="table" scroll-x bindscroll="showFixList" style="overflow: scroll;">
+    <view>
+      <view id='table-body' style='width: {{windowWidth}}px;height:{{windowHeight}}px;overflow: scroll;'>
+        <!-- 表头 -->
+        <view class="thead" style='width: {{bodyWidth + 20}}px;position:sticky;top:0;background:#fff;z-index:9999'>
+          <view class='th' wx:for="{{columnInfo}}" wx:key="{{idx}}" wx:for-index="idx"
+            style="position: {{idx == 'Aid' ? 'sticky;left:0;background:#fff':'static'}}">
+            <view class='content' style="width: {{item}}px">{{idx}}</view>
+          </view>
+        </view>
+        <view class="body">
+          <view class='tr' wx:for="{{datas}}" wx:for-item="rows" wx:for-index="idx" wx:key="{{idx}}">
+            <view class='td {{key}}' wx:for="{{rows}}" wx:for-item="col" wx:for-index="key" wx:key="{{col}}"
+              style="position: {{key == 'Aid' ? 'sticky;left:0;background:#fff;box-shadow: 2px 0 2px #ccc;':'static'}}">
+              <view class='content' style="width: {{columnInfo[key]}}px">{{col}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
